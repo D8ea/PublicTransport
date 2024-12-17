@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Special offers and discounts on bus tickets with Nepal Express Bus Service. Book your next journey with us.">
+    <title>Special Offers | Nepal Express Bus Service</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            overflow-x: hidden;
+            background-image: url('img/offer.jpg'); /* Add your background image URL here */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Header Section */
+        header {
+            background: rgba(31, 40, 51, 0.8); /* Semi-transparent dark background */
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .offers-header .logo img {
+            width: 220px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.8));
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .offers-header .logo img:hover {
+            filter: drop-shadow(0 0 30px rgba(0, 255, 255, 1));
+            transform: scale(1.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav a {
+            color: #c5c6c7;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #66fcf1;
+            transform: translateY(-2px);
+        }
+
+        /* Offers Section */
+        #offers {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: rgba(11, 12, 16, 0.8); /* Slightly transparent background */
+            color: #c5c6c7;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        #offers h2 {
+            color: #66fcf1;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .offer-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .offer {
+            background: rgba(31, 40, 51, 0.9); /* Darker semi-transparent background for offers */
+            border: 2px solid #45a29e;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: left;
+            max-width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .offer img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .offer h3 {
+            color: #66fcf1;
+            margin-bottom: 0.5rem;
+        }
+
+        .offer p {
+            margin-bottom: 1rem;
+        }
+
+        .offer button {
+            background: #66fcf1;
+            color: #0b0c10;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .offer button:hover {
+            background: #45a29e;
+        }
+
+        .offer:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        /* What Customers Say Section */
+        #testimonials {
+            background: rgba(31, 40, 51, 0.8); /* Semi-transparent background */
+            padding: 4rem 2rem;
+            color: #c5c6c7;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        #testimonials h2 {
+            color: #66fcf1;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .testimonial {
+            background: rgba(11, 12, 16, 0.8); /* Slightly transparent dark background for testimonials */
+            border: 2px solid #45a29e;
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial h3 {
+            color: #66fcf1;
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial p {
+            color: #c5c6c7;
+            margin-bottom: 1rem;
+        }
+
+        /* Why Our Offer Section */
+        #why-offer {
+            background: rgba(11, 12, 16, 0.8); /* Slightly transparent background */
+            padding: 4rem 2rem;
+            color: #c5c6c7;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        #why-offer h2 {
+            color: #66fcf1;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .offer-reason {
+            margin-bottom: 2rem;
+        }
+
+        .offer-reason h3 {
+            color: #66fcf1;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .offer-reason p {
+            color: #c5c6c7;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .modal-content {
+            background-color: #1f2833;
+            padding: 2rem;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content h2 {
+            color: #66fcf1;
+        }
+
+        .modal-content p {
+            color: #c5c6c7;
+        }
+
+        .close-btn {
+            background-color: #66fcf1;
+            color: #0b0c10;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .close-btn:hover {
+            background-color: #45a29e;
+        }
+
+        /* Footer Section */
+        footer {
+            background: rgba(31, 40, 51, 0.8); /* Semi-transparent background */
+            color: #c5c6c7;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        footer ul li {
+            margin: 0 2rem;
+        }
+
+        footer ul li a {
+            color: #c5c6c7;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        footer ul li a:hover {
+            color: #66fcf1;
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section for Offers -->
+    <header class="offers-header">
+        <div class="logo">
+            <img src="img/bus.png" alt="Nepal Express Bus Service Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="routes.html">Routes</a></li>
+                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Offers Section -->
+    <section id="offers">
+        <h2>Special Offers</h2>
+        <div class="offer-container">
+            <div class="offer">
+                <img src="img/pokhara@.jpg" alt="Kathmandu to Pokhara">
+                <h3>50% Off on Kathmandu to Pokhara</h3>
+                <p>Enjoy a flat 50% discount for a limited time!</p>
+                <button onclick="window.location.href='tickets.html'" aria-label="Book Kathmandu to Pokhara">Book Now</button>
+            </div>
+            <div class="offer">
+                <img src="img/discount.jpg" alt="Group Discount">
+                <h3>Group Discount</h3>
+                <p>Save 20% when you book 5 or more tickets together.</p>
+                <button onclick="openModal('group-discount')" aria-label="Learn more about group discount">Learn More</button>
+            </div>
+            <div class="offer">
+                <img src="img/bird.jpg" alt="Early Bird Offer">
+                <h3>Early Bird Offer</h3>
+                <p>Book 15 days in advance and get 10% off!</p>
+                <button onclick="window.location.href='tickets.html'" aria-label="Book Early Bird Offer">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Customers Say Section -->
+    <section id="testimonials">
+        <h2>What Customers Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <img src="img/Rita.jpg" alt="Customer 1">
+                <h3>Rita Sharma</h3>
+                <p>"The discount on Kathmandu to Pokhara was amazing! Great service and comfortable journey."</p>
+            </div>
+            <div class="testimonial">
+                <img src="img/samir.jpg" alt="Customer 2">
+                <h3>Samir Thapa</h3>
+                <p>"Booking for a group was very convenient and affordable. Highly recommended!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-offer">
+        <h2>Why Our Offers?</h2>
+        <div class="offer-reason">
+            <h3>Affordable Pricing</h3>
+            <p>We offer some of the best prices in the industry for all our routes.</p>
+        </div>
+        <div class="offer-reason">
+            <h3>Comfortable Travel</h3>
+            <p>Experience luxurious travel with ample space and modern amenities.</p>
+        </div>
+        <div class="offer-reason">
+            <h3>Convenient Bookings</h3>
+            <p>Book your tickets online with ease and secure your spot today!</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Nepal Express Bus Service. All rights reserved.</p>
+        <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>

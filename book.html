@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Kathmandu to Pokhara | Nepal Express Bus Service</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #66fcf1;
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            font-size: 1.1rem;
+            color: #c5c6c7;
+            display: block;
+            margin: 1rem 0 0.5rem;
+        }
+
+        input[type="text"], input[type="date"], input[type="tel"], select, button {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid #c5c6c7;
+            background: #1f2833;
+            color: #c5c6c7;
+        }
+
+        button {
+            background: #66fcf1;
+            color: #0b0c10;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a29e;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            background: #45a29e;
+            color: #c5c6c7;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #66fcf1;
+        }
+
+        /* Confirmation Message */
+        .confirmation-message {
+            color: #66fcf1;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Book Your Ticket: Kathmandu to Pokhara</h2>
+
+    <form id="booking-form" action="submit-booking.php" method="POST">
+        <label for="passenger-name">Full Name:</label>
+        <input type="text" id="passenger-name" name="passenger-name" required>
+
+        <label for="contact-details">Contact Details (Phone or Email):</label>
+        <input type="tel" id="contact-details" name="contact-details" required placeholder="Enter your phone number or email">
+
+        <label for="date">Travel Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="seat-type">Seat Type:</label>
+        <select id="seat-type" name="seat-type" required>
+            <option value="standard">Standard (NPR 1,000)</option>
+            <option value="premium">Premium (NPR 1,500)</option>
+        </select>
+
+        <button type="submit" onclick="return confirmBooking(event)">Confirm Booking</button>
+    </form>
+
+    <!-- Back to Routes Page Link -->
+    <a href="tickets.html" class="back-button">Back</a>
+
+    <!-- Confirmation Message -->
+    <div id="confirmation-message" class="confirmation-message" style="display: none;"></div>
+
+    <script>
+        function confirmBooking(event) {
+            // Prevent the form from submitting immediately
+            event.preventDefault();
+
+            // Show a confirmation dialog before submitting the form
+            const confirmation = confirm("Are you sure you want to confirm the booking?");
+            
+            if (confirmation) {
+                // If the user clicks "Yes", show the confirmation message
+                const confirmationMessage = document.getElementById('confirmation-message');
+                confirmationMessage.style.display = 'block';
+                confirmationMessage.textContent = "Booking Confirmed! Redirecting to Home Page...";
+
+                // Redirect to the home page after 2 seconds
+                setTimeout(function() {
+                    window.location.href = 'home.html'; // Redirect to the home page
+                }, 2000); // 2 seconds delay
+            } else {
+                // If the user clicks "No", redirect to the home page immediately
+                alert("Booking was canceled.");
+                window.location.href = 'home.html'; // Redirect to the home page
+            }
+        }
+    </script>
+
+</body>
+</html>

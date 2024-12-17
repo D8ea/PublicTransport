@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepal Express Bus Service - Home</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #fff;
+            background: url('img/Nepal Wallpaper.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            opacity: 0; /* Initially set opacity to 0 */
+            animation: fadeIn 1.5s forwards; /* Apply fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(31, 40, 51, 0.8);
+            color: #fff;
+            padding: 3rem 2rem;
+            border-bottom: 4px solid #66fcf1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        header .logo img {
+            width: 200px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        header .logo img:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 15px #66fcf1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 1rem;
+        }
+
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            color: #c5c6c7;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #66fcf1;
+            transform: translateY(-5px);
+        }
+
+        /* Separate Login & Signup Section */
+        .auth-links {
+            position: absolute;
+            top: 3rem;
+            right: 3rem;
+            display: flex;
+            gap: 1.5rem;
+            z-index: 20; /* Added z-index here to make sure the buttons appear in front */
+        }
+
+        .auth-links a {
+            background-color: #66fcf1;
+            color: #1f2833;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .auth-links a:hover {
+            background-color: #45a29e;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 8rem 2rem;
+            opacity: 0;
+            animation: fadeIn 2.5s forwards;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #66fcf1;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #c5c6c7;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            background-color: #66fcf1;
+            color: #1f2833;
+            padding: 1rem 3rem;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #45a29e;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Features Section */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            padding: 5rem 2rem;
+            background: rgba(31, 40, 51, 0.9);
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+
+        .feature {
+            width: 22%;
+            text-align: center;
+            background: #1f2833;
+            color: #c5c6c7;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature h2 {
+            margin-bottom: 1.5rem;
+            color: #66fcf1;
+            font-size: 1.8rem;
+        }
+
+        .feature p {
+            font-size: 1.1rem;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #1f2833;
+            color: #c5c6c7;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: auto;
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            animation: fadeIn 3.5s forwards;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        footer ul li a {
+            color: #c5c6c7;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        footer ul li a:hover {
+            color: #66fcf1;
+            transform: translateY(-3px);
+        }
+
+        /* Modal for Login */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 30;
+        }
+
+        .modal-content {
+            background: #1f2833;
+            padding: 3rem;
+            border-radius: 12px;
+            width: 300px;
+            color: #fff;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1.5rem;
+            color: #66fcf1;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .modal-content button {
+            width: 100%;
+            padding: 1rem;
+            background-color: #66fcf1;
+            color: #1f2833;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background-color: #45a29e;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2.5rem;
+                font-size: 1.1rem;
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="img/bus.png" alt="Nepal Express Bus Service Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="routes.html">Routes</a></li>
+                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Login & Signup Buttons -->
+        <div class="auth-links">
+            <a href="javascript:void(0);" id="loginBtn">Login</a>
+            <a href="javascript:void(0);" id="signupBtn">Sign Up</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Travel Across Nepal with Comfort & Convenience</h1>
+        <p>Book your journey between Kathmandu, Pokhara, Butwal, and Dharan</p>
+        <a href="tickets.html" class="cta-button">Book Your Journey</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <h2>Comfortable & Reliable</h2>
+            <p>Our buses are equipped with AC, free Wi-Fi, and refreshments for a comfortable ride.</p>
+        </div>
+        <div class="feature">
+            <h2>Affordable Prices</h2>
+            <p>Travel affordably across Nepal with our budget-friendly fares.</p>
+        </div>
+        <div class="feature">
+            <h2>Multiple Departure Options</h2>
+            <p>Choose from various departure times that fit your schedule.</p>
+        </div>
+        <div class="feature">
+            <h2>Safety Guaranteed</h2>
+            <p>We ensure your safety with professionally trained drivers and well-maintained buses.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Nepal Express Bus Service | All rights reserved.</p>
+        <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="offers.html">Offers</a></li>
+        </ul>
+    </footer>
+
+    <!-- Modal for Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button>Login</button>
+        </div>
+    </div>
+
+    <!-- Modal for Signup -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeSignup">&times;</span>
+            <h2>Sign Up</h2>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button>Sign Up</button>
+        </div>
+    </div>
+
+    <script>
+        // Modal control
+        const loginBtn = document.getElementById("loginBtn");
+        const signupBtn = document.getElementById("signupBtn");
+        const loginModal = document.getElementById("loginModal");
+        const signupModal = document.getElementById("signupModal");
+        const closeLogin = document.getElementById("closeLogin");
+        const closeSignup = document.getElementById("closeSignup");
+
+        loginBtn.onclick = function() {
+            loginModal.style.display = "flex";
+        }
+
+        signupBtn.onclick = function() {
+            signupModal.style.display = "flex";
+        }
+
+        closeLogin.onclick = function() {
+            loginModal.style.display = "none";
+        }
+
+        closeSignup.onclick = function() {
+            signupModal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === loginModal) {
+                loginModal.style.display = "none";
+            }
+            if (event.target === signupModal) {
+                signupModal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Routes | Nepal Express Bus Service</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #c5c6c7; /* Light gray text */
+            background: url('img/Pokhara\ Nepal\ HD\ Wallpaper.jpg') no-repeat center center fixed; /* Add a background image */
+            background-size: cover; /* Make the background cover the whole page */
+            animation: fadeIn 1s ease-in-out; /* Fade in animation for body */
+            backdrop-filter: blur(10px); /* Apply blur effect to the background */
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(31, 40, 51, 0.85); /* Dark background with opacity */
+            color: #c5c6c7; /* Light gray text */
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header .logo img {
+            width: 220px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.8));
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        header .logo img:hover {
+            filter: drop-shadow(0 0 30px rgba(0, 255, 255, 1)); /* Glowing effect on hover */
+            transform: scale(1.1); /* Slight zoom-in effect */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 2rem;
+        }
+
+        nav a {
+            color: #c5c6c7;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #66fcf1; /* Light Blue hover */
+            transform: scale(1.1); /* Hover effect: Scale up */
+        }
+
+        /* Routes Section */
+        #routes {
+            padding: 4rem 2rem;
+            background: rgba(11, 12, 16, 0.85); /* Dark background with opacity */
+            animation: fadeInUp 1.5s ease-out;
+            backdrop-filter: blur(5px); /* Apply blur effect to the background */
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: #66fcf1;
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .route {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(31, 40, 51, 0.9); /* Dark background with opacity */
+            color: #c5c6c7;
+            margin: 2rem auto;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1s forwards; /* Fade in effect for each route */
+        }
+
+        .route:nth-child(even) {
+            flex-direction: row-reverse; /* Alternate image position */
+        }
+
+        .route:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .route img {
+            width: 220px; /* Default image size */
+            height: 160px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 0 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .route img:hover {
+            transform: scale(1.5); /* Enlarges the image on hover */
+            z-index: 10;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .route-content {
+            max-width: 65%; /* Adjusted for more balance */
+            text-align: left;
+        }
+
+        .route-content p.description {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #66fcf1; /* Light blue text for descriptions */
+            line-height: 1.6;
+        }
+
+        /* Responsive Design for Small Screens */
+        @media (max-width: 768px) {
+            .route {
+                max-width: 90%; /* Adjust the width */
+                flex-direction: column; /* Stack items vertically */
+                text-align: center;
+            }
+
+            .route img {
+                margin-bottom: 1rem;
+                width: 100%; /* Full width for smaller screens */
+                height: auto; /* Maintain aspect ratio */
+            }
+
+            .route-content {
+                max-width: 100%; /* Use full width for text */
+            }
+        }
+
+        /* Footer Section */
+        footer {
+            background: rgba(31, 40, 51, 0.85); /* Dark background with opacity */
+            color: #c5c6c7;
+            padding: 3rem 2rem;
+            text-align: center;
+            animation: slideUp 1s ease-out;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 2rem;
+        }
+
+        footer ul li a {
+            color: #c5c6c7;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            color: #66fcf1;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="img/bus.png" alt="Nepal Express Bus Service Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="routes.html">Routes</a></li>
+                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Routes Section -->
+    <section id="routes">
+        <h2>Our Routes</h2>
+
+        <div class="route">
+            <img src="img/pokhara.jpg" alt="Kathmandu to Pokhara">
+            <div class="route-content">
+                <h3>Kathmandu → Pokhara</h3>
+                <p>Duration: 6 hours</p>
+                <p class="description">Pokhara is known for its tranquil lakes and breathtaking views of the Himalayas, making it a top destination for nature lovers.</p>
+            </div>
+        </div>
+
+        <div class="route">
+            <img src="img/butwal.jpg" alt="Kathmandu to Butwal">
+            <div class="route-content">
+                <h3>Kathmandu → Butwal</h3>
+                <p>Duration: 7 hours</p>
+                <p class="description">Butwal is a bustling city with rich history and culture, serving as a gateway to western Nepal.</p>
+            </div>
+        </div>
+
+        <div class="route">
+            <img src="img/dharan.jpg" alt="Kathmandu to Dharan">
+            <div class="route-content">
+                <h3>Kathmandu → Dharan</h3>
+                <p>Duration: 8 hours</p>
+                <p class="description">Dharan is a picturesque town at the foothills of the Mahabharat range, blending modern amenities with natural beauty.</p>
+            </div>
+        </div>
+
+        <div class="route">
+            <img src="img/chitwan.jpg" alt="Pokhara to Chitwan">
+            <div class="route-content">
+                <h3>Pokhara → Chitwan</h3>
+                <p>Duration: 5 hours</p>
+                <p class="description">Chitwan is home to Chitwan National Park, a UNESCO World Heritage Site renowned for its wildlife safaris.</p>
+            </div>
+        </div>
+
+        <div class="route">
+            <img src="img/biratnagar.jpg" alt="Kathmandu to Biratnagar">
+            <div class="route-content">
+                <h3>Kathmandu → Biratnagar</h3>
+                <p>Duration: 10 hours</p>
+                <p class="description">Biratnagar is an industrial hub and the second-largest city in Nepal, offering a glimpse into the country's economic backbone.</p>
+            </div>
+        </div>
+
+        <div class="route">
+            <img src="img/nepalgunj.jpg" alt="Butwal to Nepalgunj">
+            <div class="route-content">
+                <h3>Butwal → Nepalgunj</h3>
+                <p>Duration: 6 hours</p>
+                <p class="description">Nepalgunj is a vibrant city in the Terai region, known for its proximity to the Bardia National Park.</p>
+            </div>
+        </div>
+
+        <div class="route">
+            <img src="img/lumbini.jpg" alt="Kathmandu to Lumbini">
+            <div class="route-content">
+                <h3>Kathmandu → Lumbini</h3>
+                <p>Duration: 8 hours</p>
+                <p class="description">Lumbini is the birthplace of Lord Buddha and a spiritual center with a rich cultural heritage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Nepal Express Bus Service | All rights reserved.</p>
+        <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="offers.html">Offers</a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>

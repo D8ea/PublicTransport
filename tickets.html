@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nepal Express Bus Service offers scenic routes across Nepal. Book tickets from Kathmandu to Pokhara, Chitwan, and more.">
+    <meta name="keywords" content="Nepal bus service, Kathmandu, Pokhara, bus routes, tickets">
+    <title>Our Routes | Nepal Express Bus Service</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #c5c6c7; /* Light gray text */
+            background: url('img/image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            animation: fadeIn 1s ease-in; /* Smooth fade-in animation */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay with improved opacity */
+            z-index: -1;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(31, 40, 51, 0.7); /* Semi-transparent dark background */
+            color: #c5c6c7; /* Light gray text */
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header .logo img {
+            width: 220px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 255, 0.8));
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        header .logo img:hover {
+            filter: drop-shadow(0 0 30px rgba(0, 255, 255, 1)); /* Glowing effect on hover */
+            transform: scale(1.1); /* Slight zoom-in effect */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 2rem;
+        }
+
+        nav a {
+            color: #c5c6c7;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #66fcf1; /* Light Blue hover */
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #66fcf1;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Routes Section */
+        #routes {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: rgba(11, 12, 16, 0.85); /* Dark overlay background with improved opacity */
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: #66fcf1;
+            margin-bottom: 3rem;
+        }
+
+        .search-bar {
+            margin-bottom: 2rem;
+        }
+
+        .search-bar input {
+            width: 80%;
+            max-width: 600px;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #c5c6c7;
+            background: #1f2833;
+            color: #c5c6c7;
+            font-size: 1rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            border-color: #66fcf1;
+            transform: scale(1.05);
+        }
+
+        /* Route Cards */
+        .route {
+            background: rgba(31, 40, 51, 0.8); /* Slightly darker background for better contrast */
+            color: #c5c6c7;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .route:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .route h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #66fcf1;
+        }
+
+        .route p {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .route .route-summary {
+            font-size: 1.1rem;
+            color: #c5c6c7;
+            margin-top: 1.5rem;
+        }
+
+        .route .map-link {
+            margin-top: 1.5rem;
+            display: inline-block;
+            color: #66fcf1;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 1px solid #66fcf1;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .route .map-link:hover {
+            background-color: #66fcf1;
+            color: #1f2833;
+        }
+
+        .route a {
+            display: inline-block;
+            background-color: #66fcf1;
+            color: #1f2833;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease;
+        }
+
+        .route a:hover {
+            background-color: #45a29e;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="img/bus.png" alt="Nepal Express Bus Service Logo"> <!-- Replace with your logo -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="routes.html">Routes</a></li>
+                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="offers.html">Offers</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Routes Section -->
+    <section id="routes">
+        <!-- Routes content -->
+        <h2>Book Your Rides</h2>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="route-search" placeholder="Search for a route (e.g., Kathmandu to Pokhara)">
+        </div>
+
+        <!-- Route 1: Kathmandu → Pokhara -->
+        <div class="route">
+            <h3>Kathmandu → Pokhara</h3>
+            <p>Duration: 6 hours</p>
+            <p>Price: NPR 1,000 (Standard), NPR 1,500 (Premium)</p>
+            <p class="route-summary">This scenic route takes you from Kathmandu, the bustling capital, to the serene lakeside city of Pokhara.</p>
+            <a href="https://www.google.com/maps/dir/Kathmandu/Pokhara" target="_blank" class="map-link">View Route on Google Maps</a>
+            <a href="book.html">Book Now</a>
+        </div>
+
+        <!-- Route 2: Kathmandu → Butwal -->
+        <div class="route">
+            <h3>Kathmandu → Butwal</h3>
+            <p>Duration: 7 hours</p>
+            <p>Price: NPR 900 (Standard), NPR 1,300 (Premium)</p>
+            <p class="route-summary">Travel from Kathmandu to Butwal, a gateway to the western region of Nepal, offering great views of the mountains.</p>
+            <a href="https://www.google.com/maps/dir/Kathmandu/Butwal" target="_blank" class="map-link">View Route on Google Maps</a>
+            <a href="book.html">Book Now</a>
+        </div>
+
+        <!-- Route 3: Kathmandu → Dharan -->
+        <div class="route">
+            <h3>Kathmandu → Dharan</h3>
+            <p>Duration: 10 hours</p>
+            <p>Price: NPR 1,000 (Standard), NPR 1,500 (Premium)</p>
+            <p class="route-summary">This route takes you to the scenic eastern city of Dharan, known for its natural beauty and historical sites.</p>
+            <a href="https://www.google.com/maps/dir/Kathmandu/Dharan" target="_blank" class="map-link">View Route on Google Maps</a>
+            <a href="book.html">Book Now</a>
+        </div>
+
+        <!-- Route 4: Pokhara → Chitwan -->
+        <div class="route">
+            <h3>Pokhara → Chitwan</h3>
+            <p>Duration: 5 hours</p>
+            <p>Price: NPR 800 (Standard), NPR 1,200 (Premium)</p>
+            <p class="route-summary">This route takes you from Pokhara to Chitwan National Park, known for its wildlife and jungle safaris.</p>
+            <a href="https://www.google.com/maps/dir/Pokhara/Chitwan" target="_blank" class="map-link">View Route on Google Maps</a>
+            <a href="book.html">Book Now</a>
+        </div>
+
+        <!-- Route 5: Kathmandu → Biratnagar -->
+        <div class="route">
+            <h3>Kathmandu → Biratnagar</h3>
+            <p>Duration: 12 hours</p>
+            <p>Price: NPR 1,500 (Standard), NPR 2,000 (Premium)</p>
+            <p class="route-summary">Travel from Kathmandu to Biratnagar, the second-largest city in Nepal, located in the eastern part of the country.</p>
+            <a href="https://www.google.com/maps/dir/Kathmandu/Biratnagar" target="_blank" class="map-link">View Route on Google Maps</a>
+            <a href="book.html">Book Now</a>
+        </div>
+
+        <!-- Route 6: Butwal → Nepalgunj -->
+        <div class="route">
+            <h3>Butwal → Nepalgunj</h3>
+            <p>Duration: 9 hours</p>
+            <p>Price: NPR 1,200 (Standard), NPR 1,700 (Premium)</p>
+            <p class="route-summary">This route connects Butwal with Nepalgunj, a city located in the southwestern region of Nepal, near the Indian border.</p>
+            <a href="https://www.google.com/maps/dir/Butwal/Nepalgunj" target="_blank" class="map-link">View Route on Google Maps</a>
+            <a href="book.html">Book Now</a>
+        </div>
+
+        <!-- Route 7: Kathmandu → Lumbini -->
+        <div class="route">
+            <h3>Kathmandu → Lumbini</h3>
+            <p>Duration: 10 hours</p>
+            <p>Price: NPR 1,200 (Standard), NPR 1,700 (Premium)</p>
+            <p class="route-summary">Visit Lumbini, the birthplace of Lord Buddha, on this spiritual and cultural route from Kathmandu.</p>
+            <a href="https://www.google.com/maps/dir/Kathmandu/Lumbini" target="_blank" class="map-link">View Route on Google Maps</a>
+            <a href="book.html">Book Now</a>
+        </div>
+    </section>
+</body>
+</html>
